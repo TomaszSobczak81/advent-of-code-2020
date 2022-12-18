@@ -13,3 +13,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 To run and check solution after exec into container you need to use some CLI commands inside /mnt/app directory:
 
 * Use `./bin/aoc.py day_1_report_repair` to Day 1 solutions ([Report Repair](https://adventofcode.com/2020/day/1)) 
+* Use `./bin/aoc.py day_2_password_philosophy` to Day 2 solutions ([Password Philosophy](https://adventofcode.com/2020/day/2))
