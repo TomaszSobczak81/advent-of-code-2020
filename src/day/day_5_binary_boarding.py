@@ -46,4 +46,3 @@ class Day5(Task):
     @property
     def part_two_expected_test_value(self) -> Optional[str]:
         return '358'
-
