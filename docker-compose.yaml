@@ -3,6 +3,8 @@ version: '3'
 services:
   console:
     build: '.'
+    environment:
+      PYTHONPATH: '/mnt/app/src'
     logging:
       options:
         max-file: '1'
