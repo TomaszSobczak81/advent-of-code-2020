@@ -14,4 +14,4 @@ To run and check solution after exec into container you need to use some CLI com
 
 * Use `./bin/aoc.py day_1_report_repair` to Day 1 solutions ([Report Repair](https://adventofcode.com/2020/day/1)) 
 * Use `./bin/aoc.py day_2_password_philosophy` to Day 2 solutions ([Password Philosophy](https://adventofcode.com/2020/day/2))
-* Use `./bin/aoc.py day_3_toboggan_trajectory` to Day 3 solutions ([PasswToboggan Trajectory](https://adventofcode.com/2020/day/3))
+* Use `./bin/aoc.py day_3_toboggan_trajectory` to Day 3 solutions ([Toboggan Trajectory](https://adventofcode.com/2020/day/3))
