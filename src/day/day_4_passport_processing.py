@@ -5,7 +5,7 @@ from common.aoc import Task
 
 
 class Day4(Task):
-    def compute_part_one(self, version: str, return_passports: bool = False) -> str:
+    def compute_part_one(self, version: str, return_passports: bool = False) -> str | list:
         def validate_passport(d: dict) -> int:
             if 8 == len(d) or (7 == len(d) and 'cid' not in d):
                 return 1
