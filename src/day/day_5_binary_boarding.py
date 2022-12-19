@@ -4,7 +4,10 @@ from common.aoc import Task
 
 
 class Day5(Task):
-    def compute_part_one(self, version: str, return_seat_ids: bool = False) -> str | list:
+    def __init__(self):
+        self.seat_ids = None
+
+    def compute_part_one(self, version: str) -> str:
         def calculate_seat_id(b: str) -> int:
             enc = list(b)
             row = list(range(128))
@@ -23,16 +26,15 @@ class Day5(Task):
 
             return int(row[0]) * 8 + int(col[0])
 
-        seat_ids = [calculate_seat_id(b) for b in self.load(version)]
+        self.seat_ids = [calculate_seat_id(b) for b in self.load(version)]
 
-        return seat_ids if return_seat_ids else str(max(seat_ids))
+        return str(max(self.seat_ids))
 
     def compute_part_two(self, version: str) -> Optional[str]:
-        seat_ids = self.compute_part_one(version, True)
-        seat_ids.sort()
+        self.seat_ids.sort()
 
-        for seat_id in seat_ids:
-            if seat_id + 1 not in seat_ids:
+        for seat_id in self.seat_ids:
+            if seat_id + 1 not in self.seat_ids:
                 return str(seat_id + 1)
 
         return None

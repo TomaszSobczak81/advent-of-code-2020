@@ -5,16 +5,19 @@ from common.aoc import Task
 
 
 class Day4(Task):
-    def compute_part_one(self, version: str, return_passports: bool = False) -> str | list:
+    def __init__(self):
+        self.passports = None
+
+    def compute_part_one(self, version: str) -> str:
         def validate_passport(d: dict) -> int:
             if 8 == len(d) or (7 == len(d) and 'cid' not in d):
                 return 1
             return 0
 
-        passports = self.load_passports_data(version)
-        validated = [validate_passport(p) for p in passports]
+        self.passports = self.load_passports_data(version)
+        validated = [validate_passport(p) for p in self.passports]
 
-        return passports if return_passports else str(sum(validated))
+        return str(sum(validated))
 
     def compute_part_two(self, version: str) -> str:
         def validate_passport(d: dict) -> int:
@@ -37,7 +40,7 @@ class Day4(Task):
 
             return 1 if valid else 0
 
-        validated = [validate_passport(p) for p in self.compute_part_one(version, True)]
+        validated = [validate_passport(p) for p in self.passports]
 
         return str(sum(validated))
 
