@@ -10,10 +10,9 @@ To make it simply to use for everyone without needs to install any dependencies 
 
 ## Solutions
 
-To run and check solution after exec into container you need to use some CLI commands inside `/mnt/app` directory:
-
-* Use `./bin/aoc.py day_1_report_repair` to Day 1 solutions ([Report Repair](https://adventofcode.com/2020/day/1)) 
-* Use `./bin/aoc.py day_2_password_philosophy` to Day 2 solutions ([Password Philosophy](https://adventofcode.com/2020/day/2))
-* Use `./bin/aoc.py day_3_toboggan_trajectory` to Day 3 solutions ([Toboggan Trajectory](https://adventofcode.com/2020/day/3))
-* Use `./bin/aoc.py day_4_passport_processing` to Day 4 solutions ([Passport Processing](https://adventofcode.com/2020/day/4))
-* Use `./bin/aoc.py day_5_binary_boarding` to Day 5 solutions ([Binary Boarding](https://adventofcode.com/2020/day/5))
+* Run `make run_day_00` to solve Day 0 solutions (Just a test to check if everything is working) 
+* Run `make run_day_01` to solve Day 1 solutions ([Report Repair](https://adventofcode.com/2020/day/1)) 
+* Run `make run_day_02` to solve Day 2 solutions ([Password Philosophy](https://adventofcode.com/2020/day/2))
+* Run `make run_day_03` to solve Day 3 solutions ([Toboggan Trajectory](https://adventofcode.com/2020/day/3))
+* Run `make run_day_04` to solve Day 4 solutions ([Passport Processing](https://adventofcode.com/2020/day/4))
+* Run `make run_day_05` to solve Day 5 solutions ([Binary Boarding](https://adventofcode.com/2020/day/5))
