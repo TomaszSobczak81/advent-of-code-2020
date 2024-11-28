@@ -1,25 +1,29 @@
 import re
-from typing import Optional
 
-from common.aoc import Task
+from src.aoc.day00 import Day00
 
 
-class Day4(Task):
-    def __init__(self):
-        self.passports = None
+class Day04(Day00):
+    def __init__(self, part_one_expected_result: str, part_two_expected_result: str):
+        super(Day04, self).__init__(part_one_expected_result, part_two_expected_result)
+        self.passports = {
+            self.live_version_identifier: [],
+            self.test_version_identifier: []
+        }
 
-    def compute_part_one(self, version: str) -> str:
+    def compute_part_one_solution(self, version_identifier: str) -> str:
         def validate_passport(d: dict) -> int:
             if 8 == len(d) or (7 == len(d) and 'cid' not in d):
                 return 1
             return 0
 
-        self.passports = self.load_passports_data(version)
-        validated = [validate_passport(p) for p in self.passports]
+        passports = self.__passports_data(version_identifier)
+        self.passports[version_identifier] = passports
 
+        validated = [validate_passport(p) for p in passports]
         return str(sum(validated))
 
-    def compute_part_two(self, version: str) -> str:
+    def compute_part_two_solution(self, version_identifier: str) -> str:
         def validate_passport(d: dict) -> int:
             valid = 8 == len(d) or (7 == len(d) and 'cid' not in d)
             valid = valid and bool(re.match(r"^\d{4}$", d['byr'])) and (1920 <= int(d['byr']) <= 2002)
@@ -40,24 +44,15 @@ class Day4(Task):
 
             return 1 if valid else 0
 
-        validated = [validate_passport(p) for p in self.passports]
-
+        validated = [validate_passport(p) for p in self.passports[version_identifier]]
         return str(sum(validated))
 
-    @property
-    def part_one_expected_test_value(self) -> Optional[str]:
-        return '2'
-
-    @property
-    def part_two_expected_test_value(self) -> Optional[str]:
-        return '2'
-
-    def load_passports_data(self, version) -> list:
+    def __passports_data(self, version_identifier: str) -> list:
         current = []
         rawdata = []
         outdata = []
 
-        for line in self.load(version):
+        for line in self.lines_input_data(self.part_one_identifier, version_identifier):
             if 0 == len(line):
                 rawdata.append(re.split(r"\s+", ' '.join(current)))
                 current = []

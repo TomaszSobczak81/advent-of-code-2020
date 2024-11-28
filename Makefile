@@ -2,10 +2,10 @@ docker_compose = docker compose
 docker_container = console
 
 build: # Rebuild docker stack
-	${docker_compose} build --build-arg UID=`id --user` --build-arg GID=`id --group`
+	${docker_compose} build --build-arg DOCKER_USER_ID=`id --user` --build-arg DOCKER_GROUP_ID=`id --group`
 
 up: # Start docker stack in detached mode
-	${docker_compose} up --detach
+	${docker_compose} up --detach --remove-orphans
 
 ps: # Print docker stack status
 	${docker_compose} ps
@@ -14,4 +14,22 @@ down: # Stop docker stack
 	${docker_compose} down
 
 ssh: # SSH into container for work
-	${docker_compose} exec ${docker_container} /bin/bash
+	${docker_compose} exec ${docker_container} /bin/ash
+
+run_day_00: # Run a solver for Day 0 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day00
+
+run_day_01: # Run a solver for Day 1 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day01
+
+run_day_02: # Run a solver for Day 2 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day02
+
+run_day_03: # Run a solver for Day 3 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day03
+
+run_day_04: # Run a solver for Day 4 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day04
+
+run_day_05: # Run a solver for Day 5 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day05
