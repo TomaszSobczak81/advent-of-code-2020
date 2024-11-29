@@ -33,3 +33,6 @@ run_day_04: # Run a solver for Day 4 solutions
 
 run_day_05: # Run a solver for Day 5 solutions
 	${docker_compose} exec ${docker_container} python ./src/aoc.py day05
+
+run_day_06: # Run a solver for Day 6 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day06

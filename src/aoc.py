@@ -1,5 +1,6 @@
 import fire
 
+
 # from day.day_1_report_repair import Day1
 # from day.day_2_password_philosophy import Day2
 # from day.day_3_toboggan_trajectory import Day3
@@ -37,6 +38,12 @@ class AoC2022(object):
     def day05():
         from aoc.day05 import Day05
         Day05(str(357), str(358)).solve()
+
+    @staticmethod
+    def day06():
+        from aoc.day06 import Day06
+        Day06(str(11), str(6)).solve()
+
 
 if __name__ == '__main__':
     fire.Fire(AoC2022)
