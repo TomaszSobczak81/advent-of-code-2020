@@ -17,3 +17,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 * Run `make run_day_04` to solve Day 4 solutions ([Passport Processing](https://adventofcode.com/2020/day/4))
 * Run `make run_day_05` to solve Day 5 solutions ([Binary Boarding](https://adventofcode.com/2020/day/5))
 * Run `make run_day_06` to solve Day 6 solutions ([Custom Customs](https://adventofcode.com/2020/day/6))
+* Run `make run_day_07` to solve Day 7 solutions ([Handy Haversacks](https://adventofcode.com/2020/day/7))
