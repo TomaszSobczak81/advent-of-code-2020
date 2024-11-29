@@ -36,7 +36,6 @@ class Day07(Day00):
 
             for content in contents.split(', '):
                 matches = re.search(r'(\d+) (.*) bags?', content)
-                # rules[bag].append(matches.group(2))
                 rules[bag][matches.group(2)] = int(matches.group(1))
 
         return rules
