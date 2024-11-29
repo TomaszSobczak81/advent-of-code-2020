@@ -1,13 +1,6 @@
 import fire
 
 
-# from day.day_1_report_repair import Day1
-# from day.day_2_password_philosophy import Day2
-# from day.day_3_toboggan_trajectory import Day3
-# from day.day_4_passport_processing import Day4
-# from day.day_5_binary_boarding import Day5
-
-
 class AoC2022(object):
     @staticmethod
     def day00():
@@ -48,6 +41,11 @@ class AoC2022(object):
     def day07():
         from aoc.day07 import Day07
         Day07(str(4), str(126)).solve()
+
+    @staticmethod
+    def day08():
+        from aoc.day08 import Day08
+        Day08(str(5), str(8)).solve()
 
 
 if __name__ == '__main__':
