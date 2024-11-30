@@ -19,3 +19,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 * Run `make run_day_06` to solve Day 6 solutions ([Custom Customs](https://adventofcode.com/2020/day/6))
 * Run `make run_day_07` to solve Day 7 solutions ([Handy Haversacks](https://adventofcode.com/2020/day/7))
 * Run `make run_day_08` to solve Day 8 solutions ([Handheld Halting](https://adventofcode.com/2020/day/8))
+* Run `make run_day_09` to solve Day 9 solutions ([Encoding Error](https://adventofcode.com/2020/day/9))
