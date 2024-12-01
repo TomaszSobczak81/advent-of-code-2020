@@ -6,7 +6,7 @@ class Day06(Day00):
         forms = []
         yeses = 0
 
-        for line in self.lines_input_data(self.part_one_identifier, version_identifier):
+        for line in self.input_data_as_lines(self.part_one_identifier, version_identifier):
             if not line:
                 yeses += len(set(forms))
                 forms = []
@@ -23,7 +23,7 @@ class Day06(Day00):
         forms = []
         yeses = 0
 
-        for line in self.lines_input_data(self.part_one_identifier, version_identifier):
+        for line in self.input_data_as_lines(self.part_one_identifier, version_identifier):
             if not line:
                 yeses += len(set.intersection(*forms))
                 forms = []

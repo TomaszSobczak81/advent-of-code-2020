@@ -19,5 +19,5 @@ class Day01(Day00):
                 return str(int(a) * int(b) * int(c))
 
     def __input_data(self, part_identifier: str, version_identifier: str, repeatitions: int) -> list:
-        data = self.lines_input_data(part_identifier, version_identifier)
+        data = self.input_data_as_lines(part_identifier, version_identifier)
         return list(product(*([data] * repeatitions)))

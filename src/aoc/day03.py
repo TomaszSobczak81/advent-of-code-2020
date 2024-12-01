@@ -5,7 +5,7 @@ from src.aoc.day00 import Day00
 
 class Day03(Day00):
     def compute_part_one_solution(self, version_identifier: str, right: int = 3, down: int = 1) -> str:
-        grid = list(map(lambda s: list(s), self.lines_input_data(self.part_one_identifier, version_identifier)))
+        grid = list(map(lambda s: list(s), self.input_data_as_lines(self.part_one_identifier, version_identifier)))
         height = len(grid)
         width = len(grid[0])
         trees = 0

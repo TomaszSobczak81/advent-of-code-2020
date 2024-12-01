@@ -27,7 +27,7 @@ class Day07(Day00):
     def parse_rules(self, part_identifier: str, version_identifier: str) -> dict:
         rules = {}
 
-        for line in self.lines_input_data(part_identifier, version_identifier):
+        for line in self.input_data_as_lines(part_identifier, version_identifier):
             bag, contents = line.split(' bags contain ')
             rules[bag] = {}
 

@@ -57,5 +57,10 @@ class AoC2022(object):
         from aoc.day10 import Day10
         Day10(str(220), str(19208)).solve()
 
+    @staticmethod
+    def day11():
+        from aoc.day11 import Day11
+        Day11(str(37), str(26)).solve()
+
 if __name__ == '__main__':
     fire.Fire(AoC2022)

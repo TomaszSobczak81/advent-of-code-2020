@@ -89,8 +89,15 @@ class Day00(object):
 
         return data
 
-    def lines_input_data(self, part_identifier: str, version_identifier: str) -> list:
+    def input_data_as_lines(self, part_identifier: str, version_identifier: str) -> list:
         return self.raw_input_data(part_identifier, version_identifier).splitlines()
 
-    def list_of_ints_input_data(self, part_identifier: str, version_identifier: str) -> list[int]:
-        return [int(line) for line in self.lines_input_data(part_identifier, version_identifier)]
+    def input_data_as_lines_of_ints(self, part_identifier: str, version_identifier: str) -> list[int]:
+        return [int(line) for line in self.input_data_as_lines(part_identifier, version_identifier)]
+
+    def input_data_as_grid(self, part_identifier: str, version_identifier: str) -> list[list[str]]:
+        return [list(line) for line in self.input_data_as_lines(part_identifier, version_identifier)[::-1]]
+
+    @staticmethod
+    def debug_grid(grid: list[list[str]]) -> None:
+        [print(''.join(row)) for row in grid[::-1]]

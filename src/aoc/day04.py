@@ -52,7 +52,7 @@ class Day04(Day00):
         rawdata = []
         outdata = []
 
-        for line in self.lines_input_data(self.part_one_identifier, version_identifier):
+        for line in self.input_data_as_lines(self.part_one_identifier, version_identifier):
             if 0 == len(line):
                 rawdata.append(re.split(r"\s+", ' '.join(current)))
                 current = []

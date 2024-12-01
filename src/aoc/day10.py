@@ -7,7 +7,7 @@ class Day10(Day00):
         one_jolt_differences = 0
         three_jolt_differences = 1  # The device's built-in adapter is always 3 jolts higher than the highest adapter
 
-        adapters = self.list_of_ints_input_data(self.part_one_identifier, version_identifier)
+        adapters = self.input_data_as_lines_of_ints(self.part_one_identifier, version_identifier)
 
         for adapter in sorted(adapters):
             match adapter - current_joltage:
@@ -23,7 +23,7 @@ class Day10(Day00):
         return str(one_jolt_differences * three_jolt_differences)
 
     def compute_part_two_solution(self, version_identifier: str) -> str:
-        adapters = self.list_of_ints_input_data(self.part_one_identifier, version_identifier)
+        adapters = self.input_data_as_lines_of_ints(self.part_one_identifier, version_identifier)
         current_joltage = 0
         collections = []
         current_set = [0]

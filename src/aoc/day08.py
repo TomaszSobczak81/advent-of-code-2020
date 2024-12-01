@@ -20,7 +20,7 @@ class Day08(Day00):
     def parse_code(self, part_identifier: str, version_identifier: str) -> list:
         code = []
 
-        for line in self.lines_input_data(part_identifier, version_identifier):
+        for line in self.input_data_as_lines(part_identifier, version_identifier):
             operation, argument = line.split(' ')
             code.append({'operation': operation, 'argument': int(argument)})
 

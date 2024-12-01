@@ -10,7 +10,7 @@ class Day02(Day00):
 
             return True if (int(m.group(1)) <= m.group(4).count(m.group(3)) <= int(m.group(2))) else False
 
-        data = self.lines_input_data(self.part_one_identifier, version_identifier)
+        data = self.input_data_as_lines(self.part_one_identifier, version_identifier)
         return str(len([p for p in data if validate_password(p)]))
 
     def compute_part_two_solution(self, version_identifier: str) -> str:
@@ -21,5 +21,5 @@ class Day02(Day00):
 
             return a != b
 
-        data = self.lines_input_data(self.part_one_identifier, version_identifier)
+        data = self.input_data_as_lines(self.part_one_identifier, version_identifier)
         return str(len([p for p in data if validate_password(p)]))

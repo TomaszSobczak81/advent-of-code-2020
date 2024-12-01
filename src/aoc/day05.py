@@ -30,7 +30,7 @@ class Day05(Day00):
 
             return int(row[0]) * 8 + int(col[0])
 
-        seat_ids = [calculate_seat_id(b) for b in self.lines_input_data(self.part_one_identifier, version_identifier)]
+        seat_ids = [calculate_seat_id(b) for b in self.input_data_as_lines(self.part_one_identifier, version_identifier)]
         self.seat_ids[version_identifier] = seat_ids
 
         return str(max(seat_ids))
