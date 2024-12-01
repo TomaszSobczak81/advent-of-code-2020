@@ -91,3 +91,6 @@ class Day00(object):
 
     def lines_input_data(self, part_identifier: str, version_identifier: str) -> list:
         return self.raw_input_data(part_identifier, version_identifier).splitlines()
+
+    def list_of_ints_input_data(self, part_identifier: str, version_identifier: str) -> list[int]:
+        return [int(line) for line in self.lines_input_data(part_identifier, version_identifier)]

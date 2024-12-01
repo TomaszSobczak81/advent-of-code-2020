@@ -5,7 +5,7 @@ from src.aoc.day00 import Day00
 
 class Day09(Day00):
     def compute_part_one_solution(self, version_identifier: str) -> str:
-        transmission = self.load_transmission(self.part_one_identifier, version_identifier)
+        transmission = self.list_of_ints_input_data(self.part_one_identifier, version_identifier)
         preamble_len = 25 if version_identifier == self.live_version_identifier else 5
 
         for i in range(preamble_len, len(transmission)):
@@ -19,7 +19,7 @@ class Day09(Day00):
 
     def compute_part_two_solution(self, version_identifier: str) -> str:
         invalid_number = int(self.compute_part_one_solution(version_identifier))
-        transmission = self.load_transmission(self.part_one_identifier, version_identifier)
+        transmission = self.list_of_ints_input_data(self.part_one_identifier, version_identifier)
 
         for i in range(len(transmission)):
             for j in range(i + 1, len(transmission)):
@@ -32,6 +32,3 @@ class Day09(Day00):
                     break
 
         raise Exception("No solution found")
-
-    def load_transmission(self, part_identifier: str, version_identifier: str) -> list[int]:
-        return [int(line) for line in self.lines_input_data(part_identifier, version_identifier)]
