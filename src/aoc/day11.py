@@ -63,8 +63,11 @@ class Day11(Day00):
             if i == 0 and j == 0:
                 continue
 
-            if 0 <= (x + i) < grid_width and 0 <= (y + j) < grid_height:
-                grid_cells.append(grid[y + j][x + i])
+            x_offset = x + i
+            y_offset = y + j
+
+            if 0 <= x_offset < grid_width and 0 <= y_offset < grid_height:
+                grid_cells.append(grid[y_offset][x_offset])
 
         return grid_cells
 
