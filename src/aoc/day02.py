@@ -8,7 +8,11 @@ class Day02(Day00):
         def validate_password(s: str):
             m = re.match("^([0-9]+)-([0-9]+) ([a-z]): ([a-z]+)", s)
 
-            return True if (int(m.group(1)) <= m.group(4).count(m.group(3)) <= int(m.group(2))) else False
+            return (
+                True
+                if (int(m.group(1)) <= m.group(4).count(m.group(3)) <= int(m.group(2)))
+                else False
+            )
 
         data = self.input_data_as_lines(self.part_one_identifier, version_identifier)
         return str(len([p for p in data if validate_password(p)]))

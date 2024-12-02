@@ -21,8 +21,8 @@ class Day08(Day00):
         code = []
 
         for line in self.input_data_as_lines(part_identifier, version_identifier):
-            operation, argument = line.split(' ')
-            code.append({'operation': operation, 'argument': int(argument)})
+            operation, argument = line.split(" ")
+            code.append({"operation": operation, "argument": int(argument)})
 
         return code
 
@@ -35,12 +35,12 @@ class Day08(Day00):
             return acc
 
         self.executed_lines_of_code.append(line)
-        match code[line]['operation']:
-            case 'acc':
-                return self.execute_code(code, line + 1, acc + code[line]['argument'])
-            case 'jmp':
-                return self.execute_code(code, line + code[line]['argument'], acc)
-            case 'nop':
+        match code[line]["operation"]:
+            case "acc":
+                return self.execute_code(code, line + 1, acc + code[line]["argument"])
+            case "jmp":
+                return self.execute_code(code, line + code[line]["argument"], acc)
+            case "nop":
                 return self.execute_code(code, line + 1, acc)
 
         return acc
@@ -49,11 +49,11 @@ class Day08(Day00):
         code = self.parse_code(self.part_one_identifier, version_identifier)
 
         for idx, line in enumerate(code):
-            if line['operation'] == 'acc':
+            if line["operation"] == "acc":
                 continue
 
             __code = copy.deepcopy(code)
-            __code[idx]['operation'] = 'jmp' if line['operation'] == 'nop' else 'nop'
+            __code[idx]["operation"] = "jmp" if line["operation"] == "nop" else "nop"
 
             self.executed_lines_of_code = []
             self.is_infinite_loop = False
@@ -63,4 +63,4 @@ class Day08(Day00):
             if not self.is_infinite_loop:
                 return str(acc)
 
-        raise Exception('No solution found')
+        raise Exception("No solution found")

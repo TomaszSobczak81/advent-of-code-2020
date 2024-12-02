@@ -38,13 +38,19 @@ class Day00(object):
         self.__process_live_solution(part_identifier)
 
     def __process_test_solution(self, part_identifier: str, expected_result: str):
-        actual_result = self.__compute_solution(part_identifier, self.test_version_identifier)
+        actual_result = self.__compute_solution(
+            part_identifier, self.test_version_identifier
+        )
 
         try:
             assert actual_result == expected_result
-            print(f"Test passed for part {part_identifier}. Got {actual_result} as expected.")
+            print(
+                f"Test passed for part {part_identifier}. Got {actual_result} as expected."
+            )
         except AssertionError:
-            print(f"Test failed for part {part_identifier}. Got {actual_result} instead of {expected_result}.")
+            print(
+                f"Test failed for part {part_identifier}. Got {actual_result} instead of {expected_result}."
+            )
             exit(0)
 
     def __process_live_solution(self, part_identifier: str):
@@ -69,16 +75,16 @@ class Day00(object):
         return self.raw_input_data(self.part_one_identifier, version_identifier)[::-1]
 
     def raw_input_data(self, part_identifier: str, version_identifier: str) -> str:
-        file = '{path}/part_{part_identifier}.txt'.format(
+        file = "{path}/part_{part_identifier}.txt".format(
             path=os.path.realpath(
                 os.path.join(
                     os.path.dirname(os.path.realpath(__file__)),
-                    '..',
-                    '..',
-                    'var',
-                    'input',
+                    "..",
+                    "..",
+                    "var",
+                    "input",
                     version_identifier,
-                    self.__module__.split('.')[-1]
+                    self.__module__.split(".")[-1],
                 )
             ),
             part_identifier=part_identifier,
@@ -89,15 +95,29 @@ class Day00(object):
 
         return data
 
-    def input_data_as_lines(self, part_identifier: str, version_identifier: str) -> list:
+    def input_data_as_lines(
+        self, part_identifier: str, version_identifier: str
+    ) -> list:
         return self.raw_input_data(part_identifier, version_identifier).splitlines()
 
-    def input_data_as_lines_of_ints(self, part_identifier: str, version_identifier: str) -> list[int]:
-        return [int(line) for line in self.input_data_as_lines(part_identifier, version_identifier)]
+    def input_data_as_lines_of_ints(
+        self, part_identifier: str, version_identifier: str
+    ) -> list[int]:
+        return [
+            int(line)
+            for line in self.input_data_as_lines(part_identifier, version_identifier)
+        ]
 
-    def input_data_as_grid(self, part_identifier: str, version_identifier: str) -> list[list[str]]:
-        return [list(line) for line in self.input_data_as_lines(part_identifier, version_identifier)[::-1]]
+    def input_data_as_grid(
+        self, part_identifier: str, version_identifier: str
+    ) -> list[list[str]]:
+        return [
+            list(line)
+            for line in self.input_data_as_lines(part_identifier, version_identifier)[
+                ::-1
+            ]
+        ]
 
     @staticmethod
     def debug_grid(grid: list[list[str]]) -> None:
-        [print(''.join(row)) for row in grid[::-1]]
+        [print("".join(row)) for row in grid[::-1]]

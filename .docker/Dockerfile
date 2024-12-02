@@ -18,6 +18,7 @@ RUN addgroup -g ${DOCKER_GROUP_ID} ${DOCKER_GROUP} \
     && adduser -D -u ${DOCKER_USER_ID} -G ${DOCKER_GROUP} ${DOCKER_USER}
 
 # Copy the installed dependencies from the builder image
+COPY --from=builder /usr/local/bin/black /usr/local/bin/black
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 
 # Copy the source code

@@ -18,6 +18,8 @@ class Day01(Day00):
             if 2020 == (int(a) + int(b) + int(c)):
                 return str(int(a) * int(b) * int(c))
 
-    def __input_data(self, part_identifier: str, version_identifier: str, repeatitions: int) -> list:
+    def __input_data(
+        self, part_identifier: str, version_identifier: str, repeatitions: int
+    ) -> list:
         data = self.input_data_as_lines(part_identifier, version_identifier)
         return list(product(*([data] * repeatitions)))

@@ -16,6 +16,9 @@ down: # Stop docker stack
 ssh: # SSH into container for work
 	${docker_compose} exec ${docker_container} /bin/ash
 
+code_format: # Run code formatting
+	${docker_compose} exec ${docker_container} black ./src
+
 run_day_00: # Run a solver for Day 0 solutions
 	${docker_compose} exec ${docker_container} python ./src/aoc.py day00
 
@@ -51,3 +54,6 @@ run_day_10: # Run a solver for Day 10 solutions
 
 run_day_11: # Run a solver for Day 11 solutions
 	${docker_compose} exec ${docker_container} python ./src/aoc.py day11
+
+run_day_12: # Run a solver for Day 12 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day12

@@ -22,3 +22,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 * Run `make run_day_09` to solve Day 9 solutions ([Encoding Error](https://adventofcode.com/2020/day/9))
 * Run `make run_day_10` to solve Day 10 solutions ([Adapter Array](https://adventofcode.com/2020/day/10))
 * Run `make run_day_11` to solve Day 11 solutions ([Seating System](https://adventofcode.com/2020/day/11))
+* Run `make run_day_12` to solve Day 12 solutions ([Rain Risk](https://adventofcode.com/2020/day/12))

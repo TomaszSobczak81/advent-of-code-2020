@@ -7,18 +7,32 @@ from src.aoc.day00 import Day00
 class Day11(Day00):
     def compute_part_one_solution(self, version_identifier: str) -> str:
         seats = self.input_data_as_grid(self.part_one_identifier, version_identifier)
-        return str(self.simulate_seats_behaviour(seats, long_range_adjacent_search=False, maximum_occupied_seats=4))
+        return str(
+            self.simulate_seats_behaviour(
+                seats, long_range_adjacent_search=False, maximum_occupied_seats=4
+            )
+        )
 
     def compute_part_two_solution(self, version_identifier: str) -> str:
         seats = self.input_data_as_grid(self.part_one_identifier, version_identifier)
-        return str(self.simulate_seats_behaviour(seats, long_range_adjacent_search=True, maximum_occupied_seats=5))
+        return str(
+            self.simulate_seats_behaviour(
+                seats, long_range_adjacent_search=True, maximum_occupied_seats=5
+            )
+        )
 
-    def simulate_seats_behaviour(self, seats: list[list[str]], long_range_adjacent_search: bool,
-                                 maximum_occupied_seats: int) -> int:
+    def simulate_seats_behaviour(
+        self,
+        seats: list[list[str]],
+        long_range_adjacent_search: bool,
+        maximum_occupied_seats: int,
+    ) -> int:
         seats_occupied = sum([row.count("#") for row in seats])
 
         while True:
-            seats = self.process_seats_with_rules(seats, long_range_adjacent_search, maximum_occupied_seats)
+            seats = self.process_seats_with_rules(
+                seats, long_range_adjacent_search, maximum_occupied_seats
+            )
             seats_occupied_new = sum([row.count("#") for row in seats])
 
             if seats_occupied == seats_occupied_new:
@@ -28,11 +42,15 @@ class Day11(Day00):
 
         return seats_occupied
 
-    def process_seats_with_rules(self, seats: list[list[str]], long_range_adjacent_search: bool,
-                                 maximum_occupied_seats: int) -> list[list[str]]:
+    def process_seats_with_rules(
+        self,
+        seats: list[list[str]],
+        long_range_adjacent_search: bool,
+        maximum_occupied_seats: int,
+    ) -> list[list[str]]:
         seats_copy = copy.deepcopy(seats)
 
-        for (x, y) in product(range(0, len(seats[0])), range(0, len(seats))):
+        for x, y in product(range(0, len(seats[0])), range(0, len(seats))):
             # Floor (.) never changes
             if seats[y][x] == ".":
                 continue
@@ -41,14 +59,17 @@ class Day11(Day00):
                 case True:
                     adjacent_seats = self.long_range_adjacent_seats(seats, x, y)
                 case _:
-                    adjacent_seats =  self.immediately_adjacent_seats(seats, x, y)
+                    adjacent_seats = self.immediately_adjacent_seats(seats, x, y)
 
             # If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied
             if seats[y][x] == "L" and "#" not in adjacent_seats:
                 seats_copy[y][x] = "#"
 
             # If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty
-            elif seats[y][x] == "#" and adjacent_seats.count("#") >= maximum_occupied_seats:
+            elif (
+                seats[y][x] == "#"
+                and adjacent_seats.count("#") >= maximum_occupied_seats
+            ):
                 seats_copy[y][x] = "L"
 
         return seats_copy
@@ -59,7 +80,7 @@ class Day11(Day00):
         grid_width = len(grid[0])
         grid_height = len(grid)
 
-        for (i, j) in product([-1, 0, 1], repeat=2):
+        for i, j in product([-1, 0, 1], repeat=2):
             if i == 0 and j == 0:
                 continue
 
@@ -77,7 +98,7 @@ class Day11(Day00):
         grid_width = len(grid[0])
         grid_height = len(grid)
 
-        for (i, j) in product([-1, 0, 1], repeat=2):
+        for i, j in product([-1, 0, 1], repeat=2):
             if i == 0 and j == 0:
                 continue
 
