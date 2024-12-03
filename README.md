@@ -25,3 +25,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 * Run `make run_day_12` to solve Day 12 solutions ([Rain Risk](https://adventofcode.com/2020/day/12))
 * Run `make run_day_13` to solve Day 13 solutions ([Shuttle Search](https://adventofcode.com/2020/day/13))
 * Run `make run_day_14` to solve Day 14 solutions ([Docking Data](https://adventofcode.com/2020/day/14))
+* Run `make run_day_15` to solve Day 15 solutions ([Rambunctious Recitation](https://adventofcode.com/2020/day/15))
