@@ -1,5 +1,6 @@
 import os
 import time
+import typing
 
 
 class Day00(object):
@@ -119,5 +120,9 @@ class Day00(object):
         ]
 
     @staticmethod
-    def debug_grid(grid: list[list[str]]) -> None:
+    def debug_grid(grid: list[list[typing.Any]]) -> None:
         [print("".join(row)) for row in grid[::-1]]
+
+    @staticmethod
+    def transpose_grid(grid: list[list[typing.Any]]) -> list[list[typing.Any]]:
+        return [list(row) for row in zip(*grid)]
