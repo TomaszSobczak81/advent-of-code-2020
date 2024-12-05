@@ -27,3 +27,4 @@ To make it simply to use for everyone without needs to install any dependencies 
 * Run `make run_day_14` to solve Day 14 solutions ([Docking Data](https://adventofcode.com/2020/day/14))
 * Run `make run_day_15` to solve Day 15 solutions ([Rambunctious Recitation](https://adventofcode.com/2020/day/15))
 * Run `make run_day_16` to solve Day 16 solutions ([Ticket Translation](https://adventofcode.com/2020/day/16))
+* Run `make run_day_17` to solve Day 17 solutions ([Conway Cubes](https://adventofcode.com/2020/day/17))

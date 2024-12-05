@@ -1,5 +1,3 @@
-from http.cookiejar import user_domain_match
-
 from src.aoc.day00 import Day00
 
 
