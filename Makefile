@@ -66,3 +66,6 @@ run_day_14: # Run a solver for Day 14 solutions
 
 run_day_15: # Run a solver for Day 15 solutions
 	${docker_compose} exec ${docker_container} python ./src/aoc.py day15
+
+run_day_16: # Run a solver for Day 16 solutions
+	${docker_compose} exec ${docker_container} python ./src/aoc.py day16
