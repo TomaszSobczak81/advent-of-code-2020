@@ -1,5 +1,7 @@
 import itertools
 
+from math import prod
+
 from src.aoc.day00 import Day00
 
 
@@ -30,11 +32,17 @@ class Day16(Day00):
 
             return True
 
-        def __guess_field_options(value: int) -> list[int]:
+        def __guess_field_options(field_values: list[int]) -> list[str]:
             options = []
-            for field, ranges in rules.items():
-                if any(list(map(lambda r: r[0] <= value <= r[1], ranges))):
-                    options.append(field)
+            for f, ranges in rules.items():
+                checks = list(
+                    map(
+                        lambda value: any(map(lambda r: r[0] <= value <= r[1], ranges)),
+                        field_values,
+                    )
+                )
+                if all(checks):
+                    options.append(f)
 
             return options
 
@@ -43,35 +51,25 @@ class Day16(Day00):
         correct_fields = {}
 
         for position, values in enumerate(self.transpose_grid(valid_tickets)):
-            guessed_fields[position] = __guess_field_options(values[0])
+            guessed_fields[position] = __guess_field_options(values)
 
-        def __remove_field_proposals(fields_proposals: dict[int, list[str]],  proposal: str) -> dict[int, list[str]]:
-            for fp in fields_proposals.values():
-                if proposal in fp:
-                    fp.remove(proposal)
+        while guessed_fields:
+            for position, fields in list(guessed_fields.items()):
+                if len(fields) == 1:
+                    field = fields[0]
+                    guessed_fields.pop(position)
+                    correct_fields[field] = position
 
-            return fields_proposals
+                    for tmp in guessed_fields.values():
+                        if field in tmp:
+                            tmp.remove(field)
 
-        for position, fields in guessed_fields.items():
-            if len(fields) == 1:
-                print(position, fields)
+        departure_fields = {
+            k: v for k, v in correct_fields.items() if k.startswith("departure")
+        }
+        departure_values = [ticket[i] for i in departure_fields.values()]
 
-        # while guessed_fields:
-        #     for position, fields in list(guessed_fields.items()):
-        #         if len(fields) == 1:
-        #             field = fields[0]
-        #             guessed_fields.pop(position)
-        #             correct_fields[field] = position
-        #
-        #             for tmp in guessed_fields.values():
-        #                 if field in tmp:
-        #                     tmp.remove(field)
-        #             # guessed_fields = __remove_field_proposals(guessed_fields, field)
-
-
-        print(correct_fields)
-
-        return str(0)
+        return str(prod(departure_values or [0]))
 
     def __parse_notes(self, version_identifier: str):
         notes = self.input_data_as_lines(self.part_one_identifier, version_identifier)
